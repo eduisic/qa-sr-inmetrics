@@ -1,4 +1,4 @@
-export default class ProductsPage {
+export default class ProdutoPage {
   clickProductsMenu() {
     cy.get('a[href="/products"]').click();
   }
@@ -14,4 +14,17 @@ export default class ProductsPage {
       expect(text.toLowerCase()).to.match(new RegExp(produto.replace('-', '\\-'), 'i'));
     });
   }
+  addProductToCart(produto) {
+    cy.contains('.productinfo', produto)
+      .parent()
+      .find('a.add-to-cart')
+      .first()
+      .click();
+  }
+  clickViewCartInModal() {
+  cy.get('.modal-content')
+    .should('be.visible')
+    .find('a[href="/view_cart"]')
+    .click();
+  } 
 }

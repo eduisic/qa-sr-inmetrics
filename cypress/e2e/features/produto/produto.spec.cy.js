@@ -1,9 +1,9 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import ProductsPage from '../../pages/produtoPage/produto.page';
+import ProdutoPage from '../../pages/produtoPage/produto.page';
 import LoginPage from '../../pages/loginPage/login.page';
 
 const loginPage = new LoginPage();
-const produtoPage = new ProductsPage();
+const produtoPage = new ProdutoPage();
 
 
 Given('que eu estou logado e na pagina inicial', () => {
