@@ -7,14 +7,17 @@ module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
       const bundle = createBundler({
-          plugins: [createEsbuildPlugin(config)],
+        plugins: [createEsbuildPlugin(config)],
       });
       on("file:preprocessor", bundle);
       await addCucumberPreprocessorPlugin(on, config);
 
       return config;
     },
-    specPattern: "cypress/e2e/web/features/*.feature",
+    specPattern: [
+      "cypress/e2e/web/features/*.feature",
+      "cypress/e2e/api/**/*.cy.js"
+    ],
     supportFile: "cypress/support/e2e.js",
   },
 });
