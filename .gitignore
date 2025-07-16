@@ -2,6 +2,7 @@
 cypress/videos/
 cypress/screenshots/
 cypress/downloads/
+cypress/reports/
 
 # Cypress config cache
 .cypress_cache/

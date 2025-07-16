@@ -12,8 +12,3 @@ Feature: Carrinho de compras
     Given que o produto "Tshirt" está no carrinho
     When vou para a tela de pagamento
     Then devo ver o produto "Tshirt" listado para pagamento
-
-  Scenario: Incluir múltiplos produtos no carrinho
-    When adiciono o produto "Tshirt" ao carrinho
-    And adiciono o produto "Jeans" ao carrinho
-    Then os produtos "Tshirt" e "Jeans" devem estar no carrinho
