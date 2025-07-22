@@ -19,7 +19,7 @@ module.exports = defineConfig({
     },
     specPattern: [
       "cypress/e2e/web/features/*.feature",
-      "cypress/e2e/api/**/*.cy.js"
+      "cypress/e2e/api/features/*.feature"
     ],
     supportFile: "cypress/support/e2e.js",
     reporter: "cypress-mochawesome-reporter",

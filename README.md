@@ -31,15 +31,6 @@ Este repositório contém testes automatizados para as funcionalidades web e API
     yarn install
     ```
 
-3. Instale o Cypress (caso não esteja listado nas dependências):
-    ```bash
-    npm install cypress --save-dev
-    ```
-    ou
-    ```bash
-    yarn add cypress --dev
-    ```
-
 ## Execução dos Testes
 
 ### Abrir o Cypress em modo interativo
