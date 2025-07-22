@@ -7,12 +7,20 @@ const loginPage = new LoginPage();
 const produtoPage = new ProdutoPage();
 const carrinhoPage = new CarrinhoPage();
 
+const usuario = {
+  email: Cypress.env('USER_EMAIL') || 'inmetricstest@teste.com.br',
+  senha: Cypress.env('USER_PASSWORD') || 'testeqa',
+  nome: Cypress.env('USER_NAME') || 'Eduardo'
+};
+
 Given('que eu estou logado e na pagina inicial', () => {
   cy.visit('https://www.automationexercise.com/login');
-  loginPage.preencherEmail('inmetricstest@teste.com.br');
-  loginPage.preencherSenha('testeqa');
+  loginPage.preencherEmail(usuario.email);
+  loginPage.preencherSenha(usuario.senha);
   loginPage.clicarLogin();
-  cy.get('li a').should('contain.text', 'Logged in as Eduardo');
+  cy.url().should('include', '/');
+  cy.get('li a', { timeout: 10000 }).should('contain.text', `Logged in as ${usuario.nome}`);
+  carrinhoPage.limparCarrinho?.();
 });
 
 Given('realizo uma busca por {string}', (produto) => {
@@ -23,16 +31,18 @@ Given('realizo uma busca por {string}', (produto) => {
 });
 
 When('adiciono o produto {string} ao carrinho', (produto) => {
+  carrinhoPage.limparCarrinho?.();
   produtoPage.addProductToCart(produto);
   produtoPage.clickViewCartInModal();
 });
 
 Then('o produto {string} deve estar no carrinho', (produto) => {
-  carrinhoPage.verifyProductInCart('Tshirt');
+  carrinhoPage.verifyProductInCart(produto);
   carrinhoPage.removeProductFromCart(produto);
 });
 
 Given('que o produto {string} está no carrinho', (produto) => {
+  carrinhoPage.limparCarrinho?.();
   produtoPage.addProductToCart(produto);
   produtoPage.clickViewCartInModal();
   carrinhoPage.verifyProductInCart(produto);
@@ -40,6 +50,7 @@ Given('que o produto {string} está no carrinho', (produto) => {
 
 When('vou para a tela de pagamento', () => {
   carrinhoPage.goToCheckout();
+  cy.url().should('include', '/checkout');
 });
 
 Then('devo ver o produto {string} listado para pagamento', (produto) => {
