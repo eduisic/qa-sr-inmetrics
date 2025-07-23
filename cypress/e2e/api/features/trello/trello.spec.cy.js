@@ -3,7 +3,7 @@ import TrelloGetActionsService from '../../pages/trelloPage/trello.page';
 
 let response;
 let actionId;
-const trelloPage = new TrelloGetActionsService();
+const trelloService = new TrelloGetActionsService();
 
 Given('um actionId válido', () => {
   actionId = '592f11060f95a3d3d46a987a';
@@ -19,7 +19,7 @@ Given('um actionId inexistente', () => {
 
 When('a requisição for realizada', () => {
   const start = Date.now();
-  trelloPage.getActionById(actionId).then((res) => {
+  trelloService.getActionById(actionId).then((res) => {
     res.duration = Date.now() - start;
     response = res;
   });
