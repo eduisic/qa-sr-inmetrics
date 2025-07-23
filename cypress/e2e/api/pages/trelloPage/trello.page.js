@@ -1,4 +1,4 @@
-export default class TrelloPage {
+export default class TrelloGetActionsService {
   getActionById(actionId) {
     return cy.request({
       method: 'GET',

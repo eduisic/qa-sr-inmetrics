@@ -1,9 +1,9 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import TrelloPage from '../../pages/trelloPage/trello.page';
+import TrelloGetActionsService from '../../pages/trelloPage/trello.page';
 
 let response;
 let actionId;
-const trelloPage = new TrelloPage();
+const trelloPage = new TrelloGetActionsService();
 
 Given('um actionId válido', () => {
   actionId = '592f11060f95a3d3d46a987a';

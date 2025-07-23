@@ -7,7 +7,7 @@ Este repositório contém testes automatizados para as funcionalidades web e API
 - **web/features/carrinho.feature**: Testes de funcionalidades do carrinho de compras (BDD/Gherkin).
 - **web/features/login.feature**: Testes de autenticação e login (BDD/Gherkin).
 - **web/features/produto.feature**: Testes de funcionalidades relacionadas a produtos (BDD/Gherkin).
-- **api/trello.cy.js**: Testes automatizados para a API do Trello.
+- **api/feature/trello.feature**: Testes automatizados para a API do Trello.
 
 ## Pré-requisitos
 
@@ -50,35 +50,15 @@ npx cypress run
 ### Executar testes específicos
 
 ```bash
-npx cypress run --spec "cypress/e2e/web/features/carrinho.feature,cypress/e2e/web/features/login.feature,cypress/e2e/web/features/produto.feature,cypress/e2e/api/trello.cy.js"
+npx cypress run --spec "cypress/e2e/web/features/carrinho.feature,cypress/e2e/web/features/login.feature,cypress/e2e/web/features/produto.feature,cypress/e2e/api/features/trello.feature"
 ```
 ## Relatórios de Testes (Reports)
 
-Após a execução dos testes, são gerados relatórios automáticos utilizando o [cypress-mochawesome-reporter](https://github.com/LironEr/cypress-mochawesome-reporter).
-
-### Instalação do Reporter
-
-Certifique-se de instalar o reporter:
-
-```bash
-npm install --save-dev cypress-mochawesome-reporter
-```
-
-No início do arquivo `cypress/support/e2e.js`, adicione:
-
-```js
-import 'cypress-mochawesome-reporter/register';
-```
+Após a execução dos testes, são gerados relatórios automáticos.
 
 ### Acessando os Relatórios
 
-Após rodar os testes com:
-
-```bash
-npx cypress run
-```
-
-Os relatórios em HTML e JSON estarão disponíveis na pasta `cypress/reports`. Basta abrir o arquivo `.html` no navegador para visualizar o resultado detalhado dos testes.
+Após rodar os testes, os relatórios em HTML e JSON estarão disponíveis na pasta `cypress/reports`. Basta abrir o arquivo `.html` no navegador para visualizar o resultado detalhado dos testes.
 
 ---
 
@@ -100,23 +80,13 @@ Além disso, está configurado para gerar relatórios automáticos dos testes ut
 
 ## Observações
 
-- Certifique-se de que todos os plugins necessários estão instalados:
-  ```bash
-  npm install @bahmutov/cypress-esbuild-preprocessor @badeball/cypress-cucumber-preprocessor
-  ```
-- Consulte a documentação dos plugins para configurações avançadas.
+- Certifique-se de que todos os plugins necessários estão instalados.
 
 ## Referências
 
 - [
 Documentação oficial do Cypress
 ](https://docs.cypress.io/)
-- [
-Cypress Cucumber Preprocessor
-](https://github.com/badeball/cypress-cucumber-preprocessor)
-- [
-esbuild
-](https://github.com/evanw/esbuild)
 
 ---
 
