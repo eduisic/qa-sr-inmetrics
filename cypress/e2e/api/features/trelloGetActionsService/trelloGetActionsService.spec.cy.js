@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import TrelloGetActionsService from '../../pages/trelloPage/trello.page';
+import TrelloGetActionsService from '../../pages/trelloGetActionsService/trelloGetActionsService.page';
 
 let response;
 let actionId;
